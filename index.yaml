@@ -1,0 +1,10 @@
+asset_class:
+  dir: asset_classes
+  files: 
+    - fasta.yaml
+    - bowtie2_index.yaml
+recipe:
+  dir: recipes
+  files: 
+    - fasta.yaml
+    - bowtie2_index.yaml
