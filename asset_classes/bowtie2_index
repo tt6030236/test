@@ -1,0 +1,8 @@
+ version: 0.0.1
+ name: bowtie2_index
+ description: Genome index for bowtie2, produced with bowtie2-build
+ seek_keys:
+   bowtie2_index:
+     value: '{genome}'
+     type: prefix
+     description: The basename of the index for the reference genome
