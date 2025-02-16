@@ -1,5 +1,5 @@
  version: 0.0.1
- output_asset_class_id: 1
+ output_asset_class: fasta
  input_assets: null
  docker_image: docker.io/databio/refgenie
  custom_properties:
