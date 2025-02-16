@@ -1,5 +1,5 @@
  name: bowtie2_index
- output_asset_class_id: 8
+ output_asset_class: bowtie2_index
  input_assets:
    fasta:
      asset_class: fasta
