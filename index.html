@@ -5,5 +5,14 @@ This site can be used as a Refgenie data channel
 </p>
 
 <p>
-<code>refgenie data_channel add https URL</code>
+Add this data channel by executing the following command:
+<code>refgenie data_channel add channel_name https <span id="current-url"></span>/index.yaml</code>
 </p>
+
+<script>
+  // Get the current page URL
+  var currentUrl = window.location.href;
+  
+  // Set the URL into the span with id="current-url"
+  document.getElementById('current-url').textContent = currentUrl;
+</script>
