@@ -49,3 +49,19 @@ document.querySelector("a[href*='index.yaml']").setAttribute('href', currentUrl 
 
 // Set current year
 document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// copy to clipboard and indicate on the button with an ID
+function copyToClipboard(commandBoxId, buttonId) {
+  var commandText = document.getElementById(commandBoxId).innerText;
+  navigator.clipboard.writeText(commandText).then(function() {
+    var button = document.getElementById(buttonId);
+    var originalText = button.textContent;
+    
+    // Change button text to 'Copied!' and revert after 1 second
+    button.textContent = 'Copied!';
+    
+    setTimeout(function() {
+      button.textContent = originalText;
+    }, 1000);
+  });
+}
