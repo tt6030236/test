@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Refgenie Recipes & Asset Classes</title>
-  <!-- Using a direct CDN link to Tailwind CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
     :root {
@@ -34,20 +33,20 @@
 </head>
 <body>
   <div class="w-full">
-    <!-- Header with refgenie green -->
-    <header class="refgenie-green py-10 px-4 md:px-8">
-      <div class="container mx-auto">
-        <h1 class="text-4xl font-bold text-white text-center md:text-left">Refgenie Recipes & Asset Classes</h1>
+    <header class="refgenie-green py-6 px-4 md:px-8">
+      <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="w-64 mb-4 md:mb-0 md:mr-8">
+          <img src="./assets/refgenie-logo.svg" alt="Refgenie Logo" class="max-w-full h-auto">
+        </div>
+        <h1 class="text-3xl font-bold text-white text-center md:text-left">Refgenie Recipes & Asset Classes</h1>
       </div>
     </header>
     
-    <!-- Main content with full width -->
     <main class="container mx-auto px-4 md:px-8 py-8">
       <p class="text-lg text-gray-700 mb-10">
         This site can be used as a Refgenie data channel for managing genomic assets.
       </p>
       
-      <!-- Command box with refgenie styling -->
       <div class="bg-white border border-gray-200 rounded-lg p-6 mb-10 shadow-sm">
         <h2 class="text-xl font-semibold refgenie-green-text mb-4">
           Connect to this data channel
@@ -55,7 +54,13 @@
         <p class="mb-6 text-gray-600">Add this data channel by executing the following command:</p>
         <div class="relative">
           <pre id="command-box" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel add channel_name https <span id="current-url"></span>index.yaml</code></pre>
+          <button onclick="copyToClipboard()" class="absolute top-3 right-3 refgenie-green hover:bg-opacity-90 text-white py-2 px-4 rounded-md transition duration-200 text-sm">
+            Copy
+          </button>
         </div>
+        <p id="copy-confirm" class="text-green-600 mt-3 font-medium hidden">
+          Command copied to clipboard
+        </p>
       </div>
 
       <!-- Information section with light green background -->
@@ -69,7 +74,6 @@
       </div>
     </main>
     
-    <!-- Footer -->
     <footer class="border-t border-gray-200 mt-10 py-6 px-4 md:px-8">
       <div class="container mx-auto">
         <p class="text-gray-500 text-center md:text-left">&copy; <span id="current-year"></span> | <a href="https://github.com/refgenie/refgenie" class="refgenie-green-text hover:underline">Refgenie on GitHub</a></p>
@@ -87,6 +91,17 @@
     // Set current year
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
+    // Copy to clipboard function
+    function copyToClipboard() {
+      var commandText = document.getElementById('command-box').innerText;
+      navigator.clipboard.writeText(commandText).then(function() {
+        var confirmEl = document.getElementById('copy-confirm');
+        confirmEl.classList.remove('hidden');
+        setTimeout(function() {
+          confirmEl.classList.add('hidden');
+        }, 2000);
+      });
+    }
   </script>
 </body>
 </html>
