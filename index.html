@@ -50,7 +50,7 @@
         </h2>
         <p class="mb-6 text-gray-600">Add this data channel by executing the following command:</p>
         <div class="relative">
-          <pre id="command-box-1" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel add channel_name https <span id="current-url"></span>index.yaml</code></pre>
+          <pre id="command-box-1" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel add <span id="channel-name"></span> https <span id="current-url"></span>index.yaml</code></pre>
           <button onclick="copyToClipboard('command-box-1', 'copy-btn-1')" id="copy-btn-1" class="absolute top-3 right-3 refgenie-green hover:bg-opacity-90 text-white py-2 px-4 rounded-md transition duration-100 text-sm">
             Copy
           </button>
@@ -60,7 +60,7 @@
         </h2>
         <p class="mb-6 text-gray-600">Add all asset classes and recipes published by this data channel by executing the following command:</p>
         <div class="relative">
-          <pre id="command-box-2" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel sync channel_name</code></pre>
+          <pre id="command-box-2" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel sync <span id="channel-name-2"></span></code></pre>
           <button onclick="copyToClipboard('command-box-2', 'copy-btn-2')" id="copy-btn-2" class="absolute top-3 right-3 refgenie-green hover:bg-opacity-90 text-white py-2 px-4 rounded-md transition duration-100 text-sm">
             Copy
           </button>
@@ -93,30 +93,20 @@
   </div>
 
   <script>
-    // Get the current page URL
-    var currentUrl = window.location.href;
-    
-    // Set the URL into the span with id="current-url"
-    document.getElementById('current-url').textContent = currentUrl;
-    
-    // Set current year
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-    
-    // Copy to clipboard function with dynamic parameters for the target command box and button
-    function copyToClipboard(commandBoxId, buttonId) {
-      var commandText = document.getElementById(commandBoxId).innerText;
-      navigator.clipboard.writeText(commandText).then(function() {
-        var button = document.getElementById(buttonId);
-        var originalText = button.textContent;
+    // Generate slug from pathname function
+    function generateSlug(pathname) {
+        // Remove leading and trailing slashes
+        let cleanedPath = pathname.replace(/^\/+|\/+$/g, '');
         
-        // Change button text to 'Copied!' and revert after 1 second
-        button.textContent = 'Copied!';
-        
-        setTimeout(function() {
-          button.textContent = originalText;
-        }, 1000);
-      });
-    }
-  </script>
-</body>
-</html>
+        // If the path is empty after trimming slashes, return a default fallback
+        if (cleanedPath === '') {
+            return 'default-slug';
+        }
+
+        // Convert to lowercase
+        cleanedPath = cleanedPath.toLowerCase();
+
+        // Replace spaces, underscores, or any non-alphanumeric character with a hyphen
+        cleanedPath = cleanedPath.replace(/[^a-z0-9]+/g, '-');
+
+        // Remove any trailing hyphens in
