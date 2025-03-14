@@ -109,4 +109,44 @@
         // Replace spaces, underscores, or any non-alphanumeric character with a hyphen
         cleanedPath = cleanedPath.replace(/[^a-z0-9]+/g, '-');
 
-        // Remove any trailing hyphens in
+        // Remove any trailing hyphens in case of consecutive non-alphanumeric characters
+        cleanedPath = cleanedPath.replace(/^-+|-+$/g, '');
+
+        // Return the cleaned, web-friendly slug
+        return cleanedPath || 'default-slug';
+    }
+
+    // Get the current page URL
+    var currentUrl = window.location.href;
+    
+    // Set the URL into the span with id="current-url"
+    document.getElementById('current-url').textContent = currentUrl;
+    
+    // Set current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Generate a dynamic slug from the pathname and set it as the channel name
+    var slug = generateSlug(window.location.pathname);
+
+    // Set the slug dynamically in the code snippets
+    document.getElementById('channel-name').textContent = slug;
+    document.getElementById('channel-name-2').textContent = slug;
+
+    // Copy to clipboard function with dynamic parameters for the target command box and button
+    function copyToClipboard(commandBoxId, buttonId) {
+      var commandText = document.getElementById(commandBoxId).innerText;
+      navigator.clipboard.writeText(commandText).then(function() {
+        var button = document.getElementById(buttonId);
+        var originalText = button.textContent;
+        
+        // Change button text to 'Copied!' and revert after 1 second
+        button.textContent = 'Copied!';
+        
+        setTimeout(function() {
+          button.textContent = originalText;
+        }, 1000);
+      });
+    }
+  </script>
+</body>
+</html>
