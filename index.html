@@ -50,27 +50,21 @@
         </h2>
         <p class="mb-6 text-gray-600">Add this data channel by executing the following command:</p>
         <div class="relative">
-          <pre id="command-box" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel add channel_name https <span id="current-url"></span>index.yaml</code></pre>
-          <button onclick="copyToClipboard()" class="absolute top-3 right-3 refgenie-green hover:bg-opacity-90 text-white py-2 px-4 rounded-md transition duration-100 text-sm">
+          <pre id="command-box-1" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel add channel_name https <span id="current-url"></span>index.yaml</code></pre>
+          <button onclick="copyToClipboard('command-box-1', 'copy-btn-1')" id="copy-btn-1" class="absolute top-3 right-3 refgenie-green hover:bg-opacity-90 text-white py-2 px-4 rounded-md transition duration-100 text-sm">
             Copy
           </button>
         </div>
-        <p id="copy-confirm" class="text-green-600 mt-3 font-medium hidden">
-          Command copied to clipboard
-        </p>
         <h2 class="text-xl font-semibold refgenie-green-text mt-8 mb-4">
           2. Sync
         </h2>
-        <p class="mb-6 text-gray-600">Add all asset classet and recipes published by this data channel by executing the following command:</p>
+        <p class="mb-6 text-gray-600">Add all asset classes and recipes published by this data channel by executing the following command:</p>
         <div class="relative">
-          <pre id="command-box" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel sync channel_name</code></pre>
-          <button onclick="copyToClipboard()" class="absolute top-3 right-3 refgenie-green hover:bg-opacity-90 text-white py-2 px-4 rounded-md transition duration-100 text-sm">
+          <pre id="command-box-2" class="command-bg text-gray-200 p-6 rounded-lg font-mono text-sm overflow-x-auto"><code>refgenie data_channel sync channel_name</code></pre>
+          <button onclick="copyToClipboard('command-box-2', 'copy-btn-2')" id="copy-btn-2" class="absolute top-3 right-3 refgenie-green hover:bg-opacity-90 text-white py-2 px-4 rounded-md transition duration-100 text-sm">
             Copy
           </button>
         </div>
-        <p id="copy-confirm" class="text-green-600 mt-3 font-medium hidden">
-          Command copied to clipboard
-        </p>
       </div>
 
       <!-- Information section with light green background and logo -->
@@ -108,15 +102,19 @@
     // Set current year
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // Copy to clipboard function
-    function copyToClipboard() {
-      var commandText = document.getElementById('command-box').innerText;
+    // Copy to clipboard function with dynamic parameters for the target command box and button
+    function copyToClipboard(commandBoxId, buttonId) {
+      var commandText = document.getElementById(commandBoxId).innerText;
       navigator.clipboard.writeText(commandText).then(function() {
-        var confirmEl = document.getElementById('copy-confirm');
-        confirmEl.classList.remove('hidden');
+        var button = document.getElementById(buttonId);
+        var originalText = button.textContent;
+        
+        // Change button text to 'Copied!' and revert after 1 second
+        button.textContent = 'Copied!';
+        
         setTimeout(function() {
-          confirmEl.classList.add('hidden');
-        }, 2000);
+          button.textContent = originalText;
+        }, 1000);
       });
     }
   </script>
