@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Refgenie Data Channel</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script> <!-- Add Font Awesome for the icon -->
   <style>
     :root {
       --refgenie-green: #337a5f;
@@ -41,15 +42,14 @@
     
     <main class="container mx-auto px-4 md:px-8 py-8">
       <p class="text-lg text-gray-700 mb-10">
-        This site can be used as a Refgenie data channel -- a source of asset classes and recipes.
+        This site can be used as a Refgenie data channel -- source of asset classes and recipes.
+      </p>
+      <p class="text-gray-600 mb-4">
+        To learn more about the asset classes and recipes offered by this data channel, view the <a href="<span id='current-url'></span>index.yaml" class="text-refgenie-green hover:underline inline-flex items-center"><span>index.yaml</span><i class="fas fa-external-link-alt ml-2"></i></a> file.
       </p>
 
-      <!-- Explanation for the index.yaml file -->
+      <!-- Explanation for the index.yaml file with link icon -->
       <div class="bg-white border border-gray-200 rounded-lg p-6 mb-10 shadow-sm">
-        <p class="text-gray-600 mb-4">
-          To learn more about the asset classes and recipes offered by this data channel, view the <a href="<span id='current-url'></span>index.yaml" class="text-refgenie-green hover:underline">index.yaml</a> file.
-        </p>
-
         <h2 class="text-xl font-semibold refgenie-green-text mb-4">
           1. Connect
         </h2>
@@ -72,11 +72,10 @@
         </div>
       </div>
 
-      <!-- Information section with light green background and logo -->
       <div class="refgenie-light-bg border-l-4 refgenie-border rounded-lg p-6">
         <div class="flex flex-col md:flex-row items-center md:items-start">
           <div class="w-48 mb-4 md:mb-0 md:mr-8 flex-shrink-0">
-            <img src="./assets/refgenie-logo.svg" alt="Refgenie Logo" class="max-w-full h-auto">
+            <img src="./_html_images/refgenie-logo.svg" alt="Refgenie Logo" class="max-w-full h-auto">
           </div>
           <div>
             <h2 class="text-xl font-semibold refgenie-green-text mb-4">
