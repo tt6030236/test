@@ -38,18 +38,6 @@ function generateSlug(pathname) {
     }
 }
 
-// Get the current page URL
-var currentUrl = window.location.href;
-
-// Set the URL into the span with id="current-url"
-document.getElementById('current-url').textContent = currentUrl;
-
-// Set the link to the index.yaml file
-document.querySelector("a[href*='index.yaml']").setAttribute('href', currentUrl + 'index.yaml');
-
-// Set current year
-document.getElementById('current-year').textContent = new Date().getFullYear();
-
 // copy to clipboard and indicate on the button with an ID
 function copyToClipboard(commandBoxId, buttonId) {
   var commandText = document.getElementById(commandBoxId).innerText;
@@ -65,3 +53,22 @@ function copyToClipboard(commandBoxId, buttonId) {
     }, 1000);
   });
 }
+
+// Get the current page URL
+var currentUrl = window.location.href;
+
+// Set the URL into the span with id="current-url"
+document.getElementById('current-url').textContent = currentUrl;
+
+// Set the link to the index.yaml file
+document.querySelector("a[href*='index.yaml']").setAttribute('href', currentUrl + 'index.yaml');
+
+// Set current year
+document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// Generate a dynamic slug from the pathname and set it as the channel name
+var slug = generateSlug(window.location.pathname);
+
+// Set the slug dynamically in the code snippets
+document.getElementById('channel-name').textContent = slug;
+document.getElementById('channel-name-2').textContent = slug;
