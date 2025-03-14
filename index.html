@@ -4,13 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Refgenie Recipes & Asset Classes</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+  <!-- Using a direct CDN link to Tailwind CSS that is more reliable -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Additional custom styles to ensure everything works */
+    body {
+      background: linear-gradient(to bottom right, #EEF2FF, #E0F2FE);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .gradient-header {
+      background: linear-gradient(to right, #3B82F6, #4F46E5);
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-indigo-50 to-blue-50 min-h-screen flex items-center justify-center p-4">
+<body>
   <div class="max-w-3xl w-full mx-auto my-12">
     <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
       <!-- Header with gradient background -->
-      <div class="bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-12 text-center">
+      <div class="gradient-header px-8 py-12 text-center">
         <h1 class="text-4xl font-bold text-white mb-4">Refgenie Recipes & Asset Classes</h1>
         <div class="h-1 w-24 bg-white bg-opacity-40 mx-auto rounded-full"></div>
       </div>
@@ -29,13 +44,6 @@
           <p class="mb-6 text-gray-600">Add this data channel by executing the following command:</p>
           <div class="relative">
             <pre id="command-box" class="bg-gray-800 text-gray-200 p-6 rounded-xl font-mono text-sm overflow-x-auto"><code>refgenie data_channel add channel_name https <span id="current-url"></span>index.yaml</code></pre>
-            <button onclick="copyToClipboard()" class="absolute top-3 right-3 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors text-sm">
-              Copy
-            </button>
-          </div>
-          <p id="copy-confirm" class="text-green-600 mt-3 text-center font-medium hidden">
-            Command copied to clipboard
-          </p>
         </div>
 
         <!-- Information section -->
@@ -66,17 +74,6 @@
     // Set current year
     document.getElementById('current-year').textContent = new Date().getFullYear();
     
-    // Copy to clipboard function
-    function copyToClipboard() {
-      var commandText = document.getElementById('command-box').innerText;
-      navigator.clipboard.writeText(commandText).then(function() {
-        var confirmEl = document.getElementById('copy-confirm');
-        confirmEl.classList.remove('hidden');
-        setTimeout(function() {
-          confirmEl.classList.add('hidden');
-        }, 2000);
-      });
-    }
   </script>
 </body>
 </html>
