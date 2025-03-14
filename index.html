@@ -34,10 +34,7 @@
 <body>
   <div class="w-full">
     <header class="refgenie-green py-6 px-4 md:px-8">
-      <div class="container mx-auto flex flex-col md:flex-row items-center">
-        <div class="w-64 mb-4 md:mb-0 md:mr-8">
-          <img src="./assets/refgenie-logo.svg" alt="Refgenie Logo" class="max-w-full h-auto">
-        </div>
+      <div class="container mx-auto">
         <h1 class="text-3xl font-bold text-white text-center md:text-left">Refgenie Data Channel</h1>
       </div>
     </header>
@@ -63,14 +60,21 @@
         </p>
       </div>
 
-      <!-- Information section with light green background -->
+      <!-- Information section with light green background and logo -->
       <div class="refgenie-light-bg border-l-4 refgenie-border rounded-lg p-6">
-        <h2 class="text-xl font-semibold refgenie-green-text mb-4">
-          About Refgenie
-        </h2>
-        <p class="text-gray-700">
-          Refgenie is a reference genome asset manager that makes it easy to organize, retrieve, and build genome analysis resources. It provides a standardized interface for accessing common bioinformatics reference assets across environments.
-        </p>
+        <div class="flex flex-col md:flex-row items-center md:items-start">
+          <div class="w-48 mb-4 md:mb-0 md:mr-8 flex-shrink-0">
+            <img src="./assets/refgenie-logo.svg" alt="Refgenie Logo" class="max-w-full h-auto">
+          </div>
+          <div>
+            <h2 class="text-xl font-semibold refgenie-green-text mb-4">
+              About Refgenie
+            </h2>
+            <p class="text-gray-700">
+              Refgenie is a reference genome asset manager that makes it easy to organize, retrieve, and build genome analysis resources. It provides a standardized interface for accessing common bioinformatics reference assets across environments.
+            </p>
+          </div>
+        </div>
       </div>
     </main>
     
