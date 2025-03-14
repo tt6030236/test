@@ -63,9 +63,6 @@ document.getElementById('current-url').textContent = currentUrl;
 // Set the link to the index.yaml file
 document.querySelector("a[href*='index.yaml']").setAttribute('href', currentUrl + 'index.yaml');
 
-// Set current year
-document.getElementById('current-year').textContent = new Date().getFullYear();
-
 // Generate a dynamic slug from the pathname and set it as the channel name
 var slug = generateSlug(window.location.pathname);
 
