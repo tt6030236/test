@@ -5,55 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Refgenie Recipes & Asset Classes</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<body class="bg-gray-50 min-h-screen">
-  <div class="mx-auto max-w-4xl px-4 py-12">
-    <header class="mb-12 text-center">
-      <div class="inline-block p-2 bg-blue-600 text-white rounded-lg mb-4">
-        <i class="fas fa-dna text-2xl"></i>
+<body class="bg-gradient-to-br from-indigo-50 to-blue-50 min-h-screen flex items-center justify-center p-4">
+  <div class="max-w-3xl w-full mx-auto my-12">
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+      <!-- Header with gradient background -->
+      <div class="bg-gradient-to-r from-blue-500 to-indigo-600 px-8 py-12 text-center">
+        <h1 class="text-4xl font-bold text-white mb-4">Refgenie Recipes & Asset Classes</h1>
+        <div class="h-1 w-24 bg-white bg-opacity-40 mx-auto rounded-full"></div>
       </div>
-      <h1 class="text-4xl font-bold text-gray-800 mb-2">Refgenie Recipes & Asset Classes</h1>
-      <div class="h-1 w-20 bg-blue-600 mx-auto mt-4 mb-6 rounded-full"></div>
-      <p class="text-lg text-gray-600">A seamless Refgenie data channel integration</p>
-    </header>
-
-    <main class="bg-white rounded-xl shadow-md p-8 mb-12">
-      <div class="prose max-w-none">
-        <p class="text-lg mb-6">
+      
+      <!-- Main content with nice spacing -->
+      <div class="p-8 md:p-12">
+        <p class="text-lg text-gray-700 mb-10 text-center">
           This site can be used as a Refgenie data channel for managing genomic assets.
         </p>
         
-        <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-8">
-          <h2 class="text-xl font-semibold text-blue-800 mb-4">
-            <i class="fas fa-plug mr-2"></i>Connect to this data channel
+        <!-- Command box with better styling -->
+        <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 mb-12">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">
+            Connect to this data channel
           </h2>
-          <p class="mb-4">Add this data channel by executing the following command:</p>
+          <p class="mb-6 text-gray-600">Add this data channel by executing the following command:</p>
           <div class="relative">
-            <pre id="command-box" class="bg-gray-800 text-gray-200 p-4 rounded-md font-mono text-sm overflow-x-auto"><code>refgenie data_channel add channel_name https <span id="current-url"></span>index.yaml</code></pre>
-            <button onclick="copyToClipboard()" class="absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white p-2 rounded-md transition-colors" title="Copy to clipboard">
-              <i class="far fa-copy"></i>
+            <pre id="command-box" class="bg-gray-800 text-gray-200 p-6 rounded-xl font-mono text-sm overflow-x-auto"><code>refgenie data_channel add channel_name https <span id="current-url"></span>index.yaml</code></pre>
+            <button onclick="copyToClipboard()" class="absolute top-3 right-3 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors text-sm">
+              Copy
             </button>
           </div>
-          <p id="copy-confirm" class="text-green-600 mt-2 text-sm font-medium hidden">
-            <i class="fas fa-check mr-1"></i>Command copied to clipboard
+          <p id="copy-confirm" class="text-green-600 mt-3 text-center font-medium hidden">
+            Command copied to clipboard
           </p>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
-          <h2 class="text-xl font-semibold text-gray-700 mb-4">
-            <i class="fas fa-info-circle mr-2"></i>About Refgenie
+        <!-- Information section -->
+        <div class="bg-blue-50 border border-blue-100 rounded-xl p-8">
+          <h2 class="text-xl font-semibold text-blue-800 mb-4">
+            About Refgenie
           </h2>
-          <p>
-            Refgenie is a reference genome asset manager that makes it easy to organize, retrieve, and build genome analysis resources.
+          <p class="text-gray-700">
+            Refgenie is a reference genome asset manager that makes it easy to organize, retrieve, and build genome analysis resources. It provides a standardized interface for accessing common bioinformatics reference assets across environments.
           </p>
         </div>
       </div>
-    </main>
-    
-    <footer class="text-center text-gray-500 text-sm">
-      <p>&copy; <span id="current-year"></span> Refgenie | <a href="https://github.com/refgenie/refgenie" class="text-blue-600 hover:text-blue-800 transition-colors">GitHub</a></p>
-    </footer>
+      
+      <!-- Footer -->
+      <div class="border-t border-gray-100 py-6 px-8 text-center">
+        <p class="text-gray-500">&copy; <span id="current-year"></span> | <a href="https://github.com/refgenie/refgenie" class="text-blue-600 hover:underline">Refgenie on GitHub</a></p>
+      </div>
+    </div>
   </div>
 
   <script>
